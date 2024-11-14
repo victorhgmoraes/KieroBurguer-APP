@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#AD0D0F">
+
+    <!-- Seção do menu com vermelho mais forte -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#990909"
+        android:padding="6dp"
+        android:gravity="center">
+
+        <!-- Logo/Nome da Hamburgueria -->
+        <ImageView
+            android:id="@+id/ivLogo"
+            android:layout_width="205dp"
+            android:layout_height="52dp"
+            android:src="@drawable/logo_kiero"/>
+
+        <!-- Barra Superior com itens de navegação -->
+        <LinearLayout
+            android:id="@+id/barraSuperior"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <!-- Home -->
+            <TextView
+                android:id="@+id/tvHome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/menu_home"
+                android:textColor="@android:color/white"
+                android:textSize="20sp"
+                android:padding="8dp"/>
+
+            <!-- Pedidos -->
+            <TextView
+                android:id="@+id/tvPedidos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/menu_pedidos"
+                android:textColor="@android:color/white"
+                android:textSize="20sp"
+                android:padding="8dp"/>
+
+            <!-- Peça aqui -->
+            <TextView
+                android:id="@+id/tvPecaaqui"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/menu_peca_aqui"
+                android:textColor="@android:color/white"
+                android:textSize="20sp"
+                android:padding="8dp"/>
+
+        </LinearLayout>
+        <!-- Botão de Login -->
+        <Button
+            android:id="@+id/btnLogin"
+            android:layout_width="390dp"
+            android:layout_height="wrap_content"
+            android:text="@string/login_button"
+            android:textColor="@android:color/white"
+            android:backgroundTint="@color/botao_cor"
+            android:padding="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"/>
+
+        <Button
+            android:id="@+id/btnGerenciamento"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ir para Gerenciamento"
+            android:backgroundTint="@color/botao_cor"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"/>
+    </LinearLayout>
+
+    <!-- Seção pequena em branco com "Cadastre-se" -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="117dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/backgroundwhite"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="40dp">
+
+        <!-- Título "Cadastre-se" -->
+        <TextView
+            android:id="@+id/tvTituloCadastro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cadastro_titulo"
+            android:textColor="#AD0D0F"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+    <!-- Área de scroll com fundo mais suave -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#AD0D0F"
+        android:padding="30dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <!-- Campo de Usuário -->
+            <EditText
+                android:id="@+id/etUsuarioCadastro"
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_usuario"
+                android:background="@drawable/rounded_edittext2"
+                android:padding="18dp"
+                android:gravity="center"
+                android:textColor="@android:color/black"
+                android:textColorHint="#6F6F70"
+                android:layout_marginBottom="30dp"/>
+
+            <!-- Campo de Nome -->
+            <EditText
+                android:id="@+id/etNomeCadastro"
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_nome"
+                android:background="@drawable/rounded_edittext2"
+                android:padding="18dp"
+                android:textColor="@android:color/black"
+                android:gravity="center"
+                android:textColorHint="#6F6F70"
+                android:layout_marginBottom="30dp"/>
+
+            <!-- Campo de E-mail -->
+            <EditText
+                android:id="@+id/etEmailCadastro"
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_email"
+                android:background="@drawable/rounded_edittext2"
+                android:padding="18dp"
+                android:textColor="@android:color/black"
+                android:gravity="center"
+                android:textColorHint="#6F6F70"
+                android:layout_marginBottom="30dp"
+                android:inputType="textEmailAddress" />
+
+            <!-- Campo de Senha -->
+            <EditText
+                android:id="@+id/etSenhaCadastro"
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_senha"
+                android:background="@drawable/rounded_edittext2"
+                android:padding="18dp"
+                android:gravity="center"
+                android:textColor="@android:color/black"
+                android:textColorHint="#6F6F70"
+                android:inputType="textPassword"
+                android:layout_marginBottom="30dp"/>
+
+            <!-- Campo de Confirmação de Senha -->
+            <EditText
+                android:id="@+id/etConfirmarSenhaCadastro"
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_confirmar_senha"
+                android:background="@drawable/rounded_edittext2"
+                android:padding="18dp"
+                android:textColor="@android:color/black"
+                android:gravity="center"
+                android:textColorHint="#6F6F70"
+                android:inputType="textPassword"
+                android:layout_marginBottom="30dp"/>
+
+            <!-- Campo de CPF -->
+            <EditText
+                android:id="@+id/etCPF"
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:hint="CPF"
+                android:background="@drawable/rounded_edittext2"
+                android:padding="18dp"
+                android:textColor="@android:color/black"
+                android:gravity="center"
+                android:textColorHint="#6F6F70"
+                android:inputType="number"
+                android:layout_marginBottom="30dp"/>
+
+            <!-- Campo de CEP -->
+            <EditText
+                android:id="@+id/etCEP"
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:hint="CEP"
+                android:background="@drawable/rounded_edittext2"
+                android:padding="18dp"
+                android:textColor="@android:color/black"
+                android:gravity="center"
+                android:textColorHint="#6F6F70"
+                android:inputType="number"
+                android:layout_marginBottom="30dp"/>
+
+            <!-- Campo de Logradouro -->
+            <EditText
+                android:id="@+id/etLogradouro"
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:hint="Logradouro"
+                android:background="@drawable/rounded_edittext2"
+                android:padding="18dp"
+                android:textColor="@android:color/black"
+                android:gravity="center"
+                android:textColorHint="#6F6F70"
+                android:layout_marginBottom="30dp"
+                android:inputType="text"/>
+
+            <!-- Campo de Número -->
+            <EditText
+                android:id="@+id/etNumero"
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:hint="Número"
+                android:background="@drawable/rounded_edittext2"
+                android:padding="18dp"
+                android:gravity="center"
+                android:textColor="@android:color/black"
+                android:textColorHint="#6F6F70"
+                android:inputType="number"
+                android:layout_marginBottom="30dp"/>
+
+            <!-- Campo de Complemento -->
+            <EditText
+                android:id="@+id/etComplemento"
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:hint="Complemento (opcional)"
+                android:background="@drawable/rounded_edittext2"
+                android:padding="18dp"
+                android:gravity="center"
+                android:textColor="@android:color/black"
+                android:textColorHint="#6F6F70"
+                android:layout_marginBottom="30dp"
+                android:inputType="text"/>
+
+            <!-- Campo de Bairro -->
+            <EditText
+                android:id="@+id/etBairro"
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:hint="Bairro"
+                android:background="@drawable/rounded_edittext2"
+                android:padding="18dp"
+                android:gravity="center"
+                android:textColor="@android:color/black"
+                android:textColorHint="#6F6F70"
+                android:layout_marginBottom="30dp"
+                android:inputType="text"/>
+
+            <!-- Campo de Cidade -->
+            <EditText
+                android:id="@+id/etCidade"
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:hint="Cidade"
+                android:background="@drawable/rounded_edittext2"
+                android:padding="18dp"
+                android:gravity="center"
+                android:textColor="@android:color/black"
+                android:textColorHint="#6F6F70"
+                android:layout_marginBottom="30dp"
+                android:inputType="text"/>
+
+            <!-- Campo de Estado -->
+            <EditText
+                android:id="@+id/etEstado"
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:hint="Estado"
+                android:background="@drawable/rounded_edittext2"
+                android:padding="18dp"
+                android:gravity="center"
+                android:textColor="@android:color/black"
+                android:textColorHint="#6F6F70"
+                android:layout_marginBottom="30dp"
+                android:inputType="text"/>
+
+            <!-- Botão de Cadastrar -->
+            <Button
+                android:id="@+id/btnCadastrar"
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:text="@string/cadastrar_button"
+                android:backgroundTint="@color/white"
+                android:textColor="#B71C1C"
+                android:padding="18dp"/>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

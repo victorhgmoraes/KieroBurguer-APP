@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@drawable/backgroundwhite">
+
+    <!-- Seção do menu com vermelho mais forte -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#990909"
+        android:padding="6dp"
+        android:gravity="center">
+
+        <!-- Logo/Nome da Hamburgueria -->
+        <ImageView
+            android:id="@+id/ivLogo"
+            android:layout_width="205dp"
+            android:layout_height="52dp"
+            android:src="@drawable/logo_kiero"/>
+
+        <!-- Barra Superior com itens de navegação -->
+        <LinearLayout
+            android:id="@+id/barraSuperior"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <!-- Home -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/menu_home"
+                android:textColor="@android:color/white"
+                android:textSize="20sp"
+                android:padding="8dp"/>
+
+            <!-- Pedidos -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/menu_pedidos"
+                android:textColor="@android:color/white"
+                android:textSize="20sp"
+                android:padding="8dp"/>
+
+            <!-- Peça aqui -->
+            <TextView
+                android:id="@+id/tvPecaaqui"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/menu_peca_aqui"
+                android:textColor="@android:color/white"
+                android:textSize="20sp"
+                android:padding="8dp"/>
+
+        </LinearLayout>
+
+        <!-- Botão de Login -->
+        <Button
+            android:id="@+id/btnLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/login_button"
+            android:textColor="@android:color/white"
+            android:backgroundTint="@color/botao_cor"
+            android:padding="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"/>
+    </LinearLayout>
+    <!-- Título "Meus Pedidos" -->
+    <TextView
+        android:id="@+id/tv_meus_pedidos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Meus Pedidos"
+        android:textColor="#8B0000"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="24dp"
+        android:layout_marginTop="24dp"/>
+    <HorizontalScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <!-- Tabela de Pedidos -->
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TableLayout
+                android:id="@+id/tableLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:stretchColumns="1"
+                android:background="@drawable/cell_border">
+
+                    <!-- Cabeçalho da Tabela -->
+                    <TableRow
+                        android:background="#A52A2A"
+                        android:padding="2dp">
+
+                    <TextView
+                        android:text="Pedido"
+                        android:textColor="@android:color/white"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp" />
+
+                    <TextView
+                        android:text="Data e Hora"
+                        android:textColor="@android:color/white"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"/>
+
+                    <TextView
+                        android:text="Itens"
+                        android:textColor="@android:color/white"
+                        android:textStyle="bold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"/>
+
+                    <TextView
+                        android:text="Total"
+                        android:textColor="@android:color/white"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"/>
+
+                    <TextView
+                        android:text="Endereço de Entrega"
+                        android:textColor="@android:color/white"
+                        android:textStyle="bold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"/>
+                </TableRow>
+
+                <!-- Linha de Pedido 1 -->
+                <TableRow
+                    android:background="@android:color/white"
+                    android:padding="2dp">
+
+                    <TextView
+                        android:text="35"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:textColor="@color/black"/>
+
+                    <TextView
+                        android:text="2024-10-17\n15:38:40"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:textColor="@color/black"/>
+
+                    <TextView
+                        android:text="Monster - Quantidade: 1\n- R$ 12.00"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:textColor="@color/black"/>
+
+                    <TextView
+                        android:text="R$ 12.00"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:textColor="@color/black"/>
+
+                    <TextView
+                        android:text="Rua Vinte e Quatro de Maio, 420, Apto 101,\nCentro, Curitiba - PR"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:textColor="@color/black"/>
+                </TableRow>
+
+                <!-- Linha de Pedido 2 -->
+                <TableRow
+                    android:background="@android:color/white"
+                    android:padding="2dp">
+
+                    <TextView
+                        android:text="34"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:textColor="@color/black"/>
+
+                    <TextView
+                        android:text="2023-12-05\n02:19:40"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:textColor="@color/black"/>
+
+                    <TextView
+                        android:text="Coca Cola - Quantidade: \n1 - R$ 5.00\nFanta uva - Quantidade: \n1 - R$ 5.00\nFirecracker Fusion - \nQuantidade: 2 - R$ \n25.00\nFrango Crocante \nEspecial - Quantidade: 1 \n- R$ 30.90\nMonster - Quantidade: \n1 - R$ 12.00\nSupreme Blend - Quantidade: \n1 - R$ 27.00"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:textColor="@color/black"/>
+
+                    <TextView
+                        android:text="R$ 104.90"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:textColor="@color/black"/>
+
+                    <TextView
+                        android:text="Rua Vinte e Quatro de Maio, 420, Apto 101,\nCentro, Curitiba - PR"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:textColor="@color/black"/>
+                </TableRow>
+            </TableLayout>
+        </ScrollView>
+    </HorizontalScrollView>
+</LinearLayout>

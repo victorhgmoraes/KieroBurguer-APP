@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="@drawable/backgroundwhite">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+
+        <!-- Seção de Cadastro de Produto -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/rounded_edittext"
+            android:backgroundTint="@android:color/white"
+            android:gravity="center">
+
+            <!-- Botão para voltar à página inicial -->
+            <TextView
+                android:id="@+id/tvVoltar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Voltar a página inicial"
+                android:textSize="18sp"
+                android:textColor="#9B1C1C"
+                android:layout_marginBottom="10dp"/>
+
+            <!-- Seção de Upload de Foto -->
+            <TextView
+                android:id="@+id/tvFotoLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Foto:"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:layout_marginBottom="8dp" />
+
+            <Button
+                android:id="@+id/btnEscolherFoto"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:background="@drawable/rounded_edittext"
+                android:backgroundTint="#9B1C1C"
+                android:textColor="@color/white"
+                android:text="Escolher ficheiro"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:id="@+id/tvFotoSelecionada"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:text="Nenhum ficheiro selecionado"
+                android:textSize="14sp"
+                android:layout_marginBottom="20dp" />
+
+            <!-- Campo de Nome -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nome:"
+                android:textColor="@color/botao_cor"
+                android:textSize="16sp"
+                android:layout_marginBottom="8dp" />
+
+            <EditText
+                android:id="@+id/etNome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/et_border"
+                android:padding="8dp"
+                android:textColor="@color/black"
+                android:layout_marginBottom="20dp"
+                android:inputType="text"/>
+
+            <!-- Campo de Descrição -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Descrição:"
+                android:textColor="@color/botao_cor"
+                android:textSize="16sp"
+                android:layout_marginBottom="8dp" />
+
+            <EditText
+                android:id="@+id/etDescricao"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:gravity="top"
+                android:textColor="@color/black"
+                android:background="@drawable/et_border"
+                android:padding="8dp"
+                android:layout_marginBottom="20dp"
+                android:inputType="textMultiLine" />
+
+            <!-- Campo de Preço -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Preço:"
+                android:textColor="@color/botao_cor"
+                android:textSize="16sp"
+                android:layout_marginBottom="8dp" />
+
+            <EditText
+                android:id="@+id/etPreco"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/et_border"
+                android:padding="8dp"
+                android:textColor="@color/black"
+                android:inputType="numberDecimal"
+                android:layout_marginBottom="20dp"/>
+
+            <!-- Campo de Tipo -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tipo:"
+                android:textSize="16sp"
+                android:textColor="@color/botao_cor"
+                android:layout_marginBottom="8dp" />
+
+            <Spinner
+                android:id="@+id/spinner_tipo_produto"
+                android:background="@drawable/et_border"
+                android:textColor="#000000"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp" />
+
+            <!-- Botão Cadastrar -->
+            <Button
+                android:id="@+id/btnCadastrar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded_edittext"
+                android:backgroundTint="#9B1C1C"
+                android:textColor="@color/white"
+                android:text="Cadastrar"
+                android:paddingLeft="24dp"
+                android:paddingRight="24dp"
+                android:layout_marginTop="16dp"/>
+        </LinearLayout>
+        <!-- Moldes dos Produtos Cadastrados -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/et_border">
+
+            <!-- Exemplo de Produto Cadastrado -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="16dp"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/nomeProduto"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Supreme Blend"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="8dp" />
+
+                <ImageView
+                    android:id="@+id/imagemProduto"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/hamburguer"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="8dp" />
+
+                <TextView
+                    android:id="@+id/descricaoProduto"
+                    android:layout_width="wrap_content"
+                    android:textColor="@color/black"
+                    android:layout_height="wrap_content"
+                    android:text="Descrição do produto aqui..."
+                    android:layout_marginBottom="8dp" />
+
+                <TextView
+                    android:id="@+id/precoProduto"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:text="Preço: R$ 27,00"
+                    android:layout_marginBottom="8dp" />
+
+                <TextView
+                    android:id="@+id/tipoProduto"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:text="Tipo: hamburger"
+                    android:layout_marginBottom="8dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_horizontal">
+
+                    <Button
+                        android:id="@+id/btnEditar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/rounded_edittext"
+                        android:backgroundTint="#9B1C1C"
+                        android:textColor="@color/white"
+                        android:text="Editar"
+                        android:layout_marginEnd="16dp" />
+
+                    <Button
+                        android:id="@+id/btnExcluir"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/rounded_edittext"
+                        android:backgroundTint="#9B1C1C"
+                        android:textColor="@color/white"
+                        android:text="Excluir" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_name">Kiero Burguer</string>
+    <string name="voltar">&lt; Voltar à página inicial</string>
+    <string name="login">LOGIN</string>
+    <string name="cadastro">CADASTRO</string>
+    <string name="usuario">Usuário</string>
+    <string name="senha">Senha</string>
+    <string name="mostrar_senha">Mostrar Senha</string>
+    <string name="entrar">Entrar</string>
+    <string name="fazercadastro">Não tem uma conta? Cadastre-se</string>
+    <string name="rodape">Kiero Burguer®</string>
+    <string name="nomeapp">KIERO\nBURGUER</string>
+    <string name="menu_home">Home</string>
+    <string name="menu_pedidos">Pedidos</string>
+    <string name="menu_peca_aqui">Peça aqui</string>
+    <string name="login_button">LOGIN</string>
+    <string name="cadastro_titulo">Cadastre-se</string>
+    <string name="hint_usuario">Usuário</string>
+    <string name="hint_nome">Nome</string>
+    <string name="hint_email">E-mail</string>
+    <string name="hint_senha">Senha</string>
+    <string name="hint_confirmar_senha">Confirme sua senha</string>
+    <string name="cadastrar_button">Cadastrar</string>
+    <string name="hamburguers">Hamburguers</string>
+    <string name="hamburguertipo1">Supreme Blend</string>
+    <string name="hamburguertipo2">Supreme Clever</string>
+    <string-array name="tipos_array">
+        <item>Hambúrguer</item>
+        <item>Porções</item>
+        <item>Bebidas</item>
+    </string-array>
+    <!-- Tipos de usuário para o Spinner -->
+    <string-array name="tipos_usuario">
+        <item>Normal</item>
+        <item>Admin</item>
+    </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

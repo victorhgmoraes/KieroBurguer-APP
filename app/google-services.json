@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1020802690745",
+    "project_id": "kiero-burguer",
+    "storage_bucket": "kiero-burguer.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1020802690745:android:b6120ff4eacd60260f3568",
+        "android_client_info": {
+          "package_name": "com.example.Kieroburguer"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDzU7rRERHknmVW70ww8SFXVtXe2n0Nhas"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#FFFFFF">
+
+    <!-- Seção do menu com vermelho mais forte -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#990909"
+        android:padding="6dp"
+        android:gravity="center">
+
+        <!-- Logo/Nome da Hamburgueria -->
+        <ImageView
+            android:id="@+id/ivLogo"
+            android:layout_width="205dp"
+            android:layout_height="52dp"
+            android:src="@drawable/logo_kiero"/>
+
+        <!-- Barra Superior com itens de navegação -->
+        <LinearLayout
+            android:id="@+id/barraSuperior"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+            
+            <TextView
+                android:id="@+id/boasvindas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Olá, Puff seja bem-vindo de volta!"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_margin="20dp"/>
+            
+            <!-- Botão de Logout -->
+            <Button
+                android:id="@+id/btnLogout"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="LOGOUT"
+                android:textColor="@android:color/white"
+                android:backgroundTint="@color/botao_cor"
+                android:padding="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"/>
+
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_marginTop="50dp">
+
+        <TextView
+            android:id="@+id/paginagerenciamento"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bem-vindo à página de gerenciamento"
+            android:textColor="@android:color/black"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            android:layout_margin="20dp"
+            android:gravity="center"/>
+
+        <Button
+            android:id="@+id/btnCardápio"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="Gerenciar Cardápio"
+            android:textColor="@android:color/white"
+            android:background="@drawable/rounded_edittext"
+            android:backgroundTint="@color/botao_cor"
+            android:padding="10dp"
+            android:textSize="16sp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:textStyle="bold"/>
+
+        <Button
+            android:id="@+id/btnUsuarios"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="Gerenciar Usuários"
+            android:textColor="@android:color/white"
+            android:background="@drawable/rounded_edittext"
+            android:backgroundTint="@color/botao_cor"
+            android:padding="10dp"
+            android:textSize="16sp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:textStyle="bold"/>
+    </LinearLayout>
+    <!-- Footer -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="225dp"
+        android:background="#990909"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp">
+
+        <TextView
+            android:id="@+id/footer_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Kiero Burguer®"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/footer_integrantes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:text="Desenvolvido por:"
+            android:textColor="#FFFFFF"
+            android:textSize="15sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:text="Luana Peracini"
+                android:textColor="#FFFFFF"
+                android:textSize="10sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:text="Vinicius Luciano"
+                android:textColor="#FFFFFF"
+                android:textSize="10sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:text="Matheus Gonçalves"
+                android:textColor="#FFFFFF"
+                android:textSize="10sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:text="Victor Hugo"
+                android:textColor="#FFFFFF"
+                android:textSize="10sp" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
