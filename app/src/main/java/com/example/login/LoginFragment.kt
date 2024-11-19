@@ -15,9 +15,9 @@ import com.google.firebase.auth.FirebaseAuth
 
 class LoginFragment : Fragment() {
 
-    private var isPasswordVisible = false
-    private lateinit var auth: FirebaseAuth
-    private lateinit var db: FirebaseFirestore
+    public var isPasswordVisible = false
+    lateinit var auth: FirebaseAuth
+    lateinit var db: FirebaseFirestore
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -82,7 +82,7 @@ class LoginFragment : Fragment() {
     }
 
     // Função para autenticar o usuário usando nome de usuário e senha
-    private fun autenticarUsuario(usuario: String, senha: String) {
+    public fun autenticarUsuario(usuario: String, senha: String) {
         // Busque o usuário no Firestore com o nome de usuário fornecido
         val userRef = db.collection("tbl_login").whereEqualTo("User_Login", usuario)
 

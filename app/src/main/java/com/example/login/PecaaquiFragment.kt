@@ -19,8 +19,8 @@ import java.util.*
 
 class PecaaquiFragment : Fragment() {
 
-    private lateinit var db: FirebaseFirestore
-    private lateinit var auth: FirebaseAuth
+    lateinit var db: FirebaseFirestore
+    lateinit var auth: FirebaseAuth
     private lateinit var recyclerViewHamburguer: RecyclerView
     private lateinit var recyclerViewBebida: RecyclerView
     private lateinit var recyclerViewPorcao: RecyclerView
@@ -31,7 +31,7 @@ class PecaaquiFragment : Fragment() {
     private var totalPreco: Double = 0.00
     private lateinit var recyclerViewCarrinho: RecyclerView
     private lateinit var adapterCarrinho: ConsumivelAdapter
-    private lateinit var tvTotalPreco: TextView
+    lateinit var tvTotalPreco: TextView
 
     // Mudei para listas separadas
     private val hamburgersList = mutableListOf<Consumivel>()
@@ -165,7 +165,7 @@ class PecaaquiFragment : Fragment() {
         adapterCarrinho.notifyDataSetChanged()
     }
 
-    private fun finalizarCompra() {
+    fun finalizarCompra() {
         // Obtenha o UID do usuário logado
         val uid = getUserUID()
         if (uid.isNullOrEmpty()) {

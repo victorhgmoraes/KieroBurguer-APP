@@ -13,13 +13,13 @@ import com.google.firebase.auth.FirebaseAuth
 
 class HomeFragment : Fragment() {
 
-    private lateinit var db: FirebaseFirestore
-    private lateinit var auth: FirebaseAuth
+    lateinit var db: FirebaseFirestore
+    lateinit var auth: FirebaseAuth
     private lateinit var tvHome: TextView
     private lateinit var tvPedidos: TextView
     private lateinit var tvPecaaqui: TextView
-    private lateinit var btnLoginLogout: Button
-    private lateinit var tvWelcome: TextView
+    lateinit var btnLoginLogout: Button
+    lateinit var tvWelcome: TextView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -73,7 +73,7 @@ class HomeFragment : Fragment() {
         return view
     }
 
-    private fun updateUI() {
+    fun updateUI() {
         val currentUser = auth.currentUser
         if (currentUser != null) {
             // Busca o nome de usuário no Firestore e exibe na mensagem de boas-vindas
