@@ -67,7 +67,7 @@
             android:id="@+id/btnLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/login_button"
+            android:text="@string/logout_button"
             android:textColor="@android:color/white"
             android:backgroundTint="@color/botao_cor"
             android:padding="10dp"
@@ -100,132 +100,47 @@
                 android:padding="16dp"
                 android:layout_marginBottom="25dp"/>
 
-            <!-- Card de Produto 1 -->
-            <androidx.cardview.widget.CardView
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvHamburguer"
                 android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <!-- Título da seção -->
+            <TextView
+                android:id="@+id/tvBebidastitle"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                app:cardCornerRadius="8dp"
-                app:cardElevation="4dp">
+                android:text="@string/bebidas"
+                android:textSize="24sp"
+                android:textColor="#794246"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:padding="16dp"
+                android:layout_marginBottom="25dp"/>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="16dp"
-                    android:background="#B31315"
-                    android:gravity="center">
-
-                    <ImageView
-                        android:layout_width="144dp"
-                        android:layout_height="135dp"
-                        android:layout_gravity="center"
-                        android:scaleType="fitCenter"
-                        android:src="@drawable/hamburguer" />
-
-                    <TextView
-                        android:id="@+id/tvHamburguerName"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/hamburguertipo1"
-                        android:textSize="18sp"
-                        android:textColor="@android:color/white"
-                        android:textStyle="bold"
-                        android:layout_marginTop="8dp" />
-
-                    <TextView
-                        android:id="@+id/tvHamburguerDesc"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Um hamburguer irresistivel, feito com um blend especial de carne bovina Angus, bacon crocante, queijo gouda derretido, cebola roxa, alface e uma deliciosa maionese de ervas, tudo servido em um pão de brioche artesanal"
-                        android:textColor="@android:color/white"
-                        android:layout_marginTop="24dp"
-                        android:justificationMode="inter_word"
-                        android:lineSpacingExtra="2dp" />
-
-                    <TextView
-                        android:id="@+id/tvHamburguerPrice"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Preço: R$ 25,00"
-                        android:textColor="@android:color/white"
-                        android:layout_marginTop="24dp" />
-
-                    <Button
-                        android:id="@+id/btnAddToCart"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Adicionar ao Carrinho"
-                        android:layout_marginTop="8dp"
-                        android:layout_gravity="center"
-                        android:textColor="@android:color/white"
-                        android:backgroundTint="#762323"
-                        android:textStyle="bold"/>
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-            <!-- Card de Produto 2 -->
-            <androidx.cardview.widget.CardView
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvBebida"
                 android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <!-- Título da seção -->
+            <TextView
+                android:id="@+id/tvPorcoestitle"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                app:cardCornerRadius="8dp"
-                app:cardElevation="4dp">
+                android:text="@string/porcoes"
+                android:textSize="24sp"
+                android:textColor="#794246"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:padding="16dp"
+                android:layout_marginBottom="25dp"/>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="16dp"
-                    android:background="#B31315"
-                    android:gravity="center">
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvPorcao"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
 
-                    <ImageView
-                        android:layout_width="144dp"
-                        android:layout_height="135dp"
-                        android:layout_gravity="center"
-                        android:scaleType="fitCenter"
-                        android:src="@drawable/hamburguer" />
-
-                    <TextView
-                        android:id="@+id/tvHamburguerName2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/hamburguertipo2"
-                        android:textSize="18sp"
-                        android:textColor="@android:color/white"
-                        android:textStyle="bold"
-                        android:layout_marginTop="8dp" />
-
-                    <TextView
-                        android:id="@+id/tvHamburguerDesc2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Um hamburguer irresistivel, feito com um blend especial de carne bovina Angus, bacon crocante, queijo gouda derretido, cebola roxa, alface e uma deliciosa maionese de ervas, tudo servido em um pão de brioche artesanal"
-                        android:textColor="@android:color/white"
-                        android:layout_marginTop="24dp"
-                        android:justificationMode="inter_word"
-                        android:lineSpacingExtra="2dp" />
-
-                    <TextView
-                        android:id="@+id/tvHamburguerPrice2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Preço: R$ 34,00"
-                        android:textColor="@android:color/white"
-                        android:layout_marginTop="24dp" />
-
-                    <Button
-                        android:id="@+id/btnAddToCart2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Adicionar ao Carrinho"
-                        android:layout_marginTop="8dp"
-                        android:layout_gravity="center"
-                        android:textColor="@android:color/white"
-                        android:backgroundTint="#762323"
-                        android:textStyle="bold"/>
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
             <!-- Carrinho de Compras -->
             <TextView
                 android:id="@+id/tv_carrinho_compras"
@@ -239,8 +154,14 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginBottom="25dp"/>
 
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvCarrinho"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp" />
+
             <TextView
-                android:id="@+id/tv_preco_total"
+                android:id="@+id/tvTotalPreco"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Preço Total: R$ 0.00"

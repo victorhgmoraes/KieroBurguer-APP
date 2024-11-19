@@ -41,22 +41,13 @@
                 android:id="@+id/tabela_usuarios"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:stretchColumns="1"
+                android:stretchColumns="*"
                 android:background="#FFFFFF">
 
                 <!-- Cabeçalhos -->
                 <TableRow
                     android:background="#9B1C1C"
                     android:padding="2dp">
-
-                    <TextView
-                        android:text="ID"
-                        android:textStyle="bold"
-                        android:textColor="@color/white"
-                        android:gravity="center"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:padding="5dp"/>
 
                     <TextView
                         android:text="Usuário"
@@ -104,147 +95,6 @@
                         android:padding="5dp"/>
                 </TableRow>
 
-                <!-- Linha de dados -->
-                <TableRow
-                    android:padding="2dp">
-
-                    <TextView
-                        android:text="11"
-                        android:gravity="center"
-                        android:textColor="@color/black"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:padding="5dp" />
-
-                    <TextView
-                        android:text="Puff"
-                        android:gravity="center"
-                        android:textColor="@color/black"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:padding="5dp" />
-
-                    <TextView
-                        android:text="Vinicius Luciano de Souza"
-                        android:gravity="center"
-                        android:textColor="@color/black"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:padding="5dp" />
-
-                    <TextView
-                        android:text="viniciuslu1@hotmail.com"
-                        android:gravity="center"
-                        android:textColor="@color/black"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:padding="5dp" />
-
-                    <Spinner
-                        android:id="@+id/tipo_usuario_1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:entries="@array/tipos_usuario"
-                        android:gravity="center"
-                        android:padding="5dp" />
-
-                    <LinearLayout
-                        android:orientation="vertical"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-
-                        <Button
-                            android:id="@+id/salvar_button_1"
-                            android:text="Salvar"
-                            android:backgroundTint="#9B1C1C"
-                            android:textColor="@color/white"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:layout_margin="2dp" />
-
-                        <Button
-                            android:id="@+id/excluir_button_1"
-                            android:text="Excluir"
-                            android:backgroundTint="#9B1C1C"
-                            android:textColor="@color/white"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:layout_margin="2dp" />
-                    </LinearLayout>
-                </TableRow>
-
-                <!-- Linha 2 (mesmos ajustes) -->
-                <TableRow
-                    android:padding="2dp">
-
-                    <TextView
-                        android:text="13"
-                        android:gravity="center"
-                        android:textColor="@color/black"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:padding="5dp" />
-
-                    <TextView
-                        android:text="PuffO"
-                        android:gravity="center"
-                        android:textColor="@color/black"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:padding="5dp" />
-
-                    <TextView
-                        android:text="Vinicius Luciano de Souza"
-                        android:gravity="center"
-                        android:textColor="@color/black"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:padding="5dp" />
-
-                    <TextView
-                        android:text="viniciuslu1@hotmail.com"
-                        android:gravity="center"
-                        android:textColor="@color/black"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:padding="5dp" />
-
-                    <Spinner
-                        android:id="@+id/tipo_usuario_2"
-                        android:gravity="center"
-                        android:textColor="@color/black"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:padding="5dp" />
-
-                    <LinearLayout
-                        android:orientation="vertical"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-
-                        <Button
-                            android:id="@+id/salvar_button_2"
-                            android:text="Salvar"
-                            android:backgroundTint="#9B1C1C"
-                            android:textColor="@color/white"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:layout_margin="2dp" />
-
-                        <Button
-                            android:id="@+id/excluir_button_2"
-                            android:text="Excluir"
-                            android:backgroundTint="#9B1C1C"
-                            android:textColor="@color/white"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:layout_margin="2dp" />
-                    </LinearLayout>
-                </TableRow>
             </TableLayout>
         </ScrollView>
     </HorizontalScrollView>

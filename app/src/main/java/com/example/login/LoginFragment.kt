@@ -91,6 +91,7 @@ class LoginFragment : Fragment() {
                 if (!documents.isEmpty) {
                     val document = documents.first()
                     val email = document.getString("Email_Login") ?: ""
+                    val tipoUsuario = document.getLong("Tipo_Usuario")?.toInt()
 
                     if (email.isNotEmpty()) {
                         // Se o email for encontrado, autentique o usuário com o Firebase Authentication
@@ -100,8 +101,14 @@ class LoginFragment : Fragment() {
                                     // Login bem-sucedido
                                     Toast.makeText(context, "Login efetuado com sucesso!", Toast.LENGTH_SHORT).show()
 
-                                    // Navegar para a página inicial
-                                    (activity as? LoginActivity)?.replaceFragment(HomeFragment())
+                                    // Verificar o tipo de usuário
+                                    if (tipoUsuario == 1) {
+                                        // Redireciona para GerenciamentoFragment se for administrador
+                                        (activity as? LoginActivity)?.replaceFragment(GerenciamentoFragment())
+                                    } else {
+                                        // Redireciona para HomeFragment se for usuário comum
+                                        (activity as? LoginActivity)?.replaceFragment(HomeFragment())
+                                    }
                                 } else {
                                     // Se o login falhar
                                     Toast.makeText(context, "Credenciais inválidas", Toast.LENGTH_SHORT).show()

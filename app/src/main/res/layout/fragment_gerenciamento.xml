@@ -30,28 +30,29 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center">
-            
+
+            <!-- Botão de Logout -->
+
             <TextView
-                android:id="@+id/boasvindas"
+                android:id="@+id/tvWelcome"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Olá, Puff seja bem-vindo de volta!"
+                android:layout_margin="20dp"
+                android:text="Olá Usuário, seja bem-vindo de volta!"
                 android:textColor="@android:color/white"
                 android:textSize="16sp"
-                android:textStyle="bold"
-                android:layout_margin="20dp"/>
-            
-            <!-- Botão de Logout -->
+                android:textStyle="bold" />
+
             <Button
                 android:id="@+id/btnLogout"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:text="LOGOUT"
-                android:textColor="@android:color/white"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
                 android:backgroundTint="@color/botao_cor"
                 android:padding="10dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"/>
+                android:text="Logout"
+                android:textColor="@android:color/white" />
 
         </LinearLayout>
     </LinearLayout>

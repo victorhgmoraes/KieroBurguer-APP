@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="16dp"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="4dp"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:background="#B31315"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/ivFotoProduto"
+            android:layout_width="144dp"
+            android:layout_height="135dp"
+            android:layout_gravity="center"
+            android:scaleType="fitCenter"
+            android:src="@drawable/hamburguer" />
+
+        <TextView
+            android:id="@+id/tvNomeProduto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nome do Produto"
+            android:textSize="18sp"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:layout_marginTop="8dp" />
+
+        <TextView
+            android:id="@+id/tvDescricaoProduto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Descrição do Produto"
+            android:textColor="@android:color/white"
+            android:layout_marginTop="24dp"
+            android:justificationMode="inter_word"
+            android:lineSpacingExtra="2dp" />
+
+        <TextView
+            android:id="@+id/tvPrecoProduto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Preço: R$ 0,00"
+            android:textColor="@android:color/white"
+            android:layout_marginTop="24dp" />
+
+        <Button
+            android:id="@+id/btnAdicionarCarrinho"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Adicionar ao Carrinho"
+            android:layout_marginTop="8dp"
+            android:layout_gravity="center"
+            android:textColor="@android:color/white"
+            android:backgroundTint="#762323"
+            android:textStyle="bold"/>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

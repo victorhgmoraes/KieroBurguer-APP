@@ -1,98 +1,220 @@
 package com.example.login
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.fragment.app.Fragment
 import android.widget.Toast
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.auth.FirebaseAuth
+import java.text.SimpleDateFormat
+import java.util.*
 
 class PecaaquiFragment : Fragment() {
 
     private lateinit var db: FirebaseFirestore
+    private lateinit var auth: FirebaseAuth
+    private lateinit var recyclerViewHamburguer: RecyclerView
+    private lateinit var recyclerViewBebida: RecyclerView
+    private lateinit var recyclerViewPorcao: RecyclerView
+    private lateinit var adapterHamburguer: ConsumivelAdapter
+    private lateinit var adapterBebida: ConsumivelAdapter
+    private lateinit var adapterPorcao: ConsumivelAdapter
+    private val carrinho = mutableListOf<Consumivel>()
+    private var totalPreco: Double = 0.00
+    private lateinit var recyclerViewCarrinho: RecyclerView
+    private lateinit var adapterCarrinho: ConsumivelAdapter
+    private lateinit var tvTotalPreco: TextView
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        // Obtenha a instância do Firestore diretamente
-        db = FirebaseFirestore.getInstance()
-    }
+    // Mudei para listas separadas
+    private val hamburgersList = mutableListOf<Consumivel>()
+    private val bebidasList = mutableListOf<Consumivel>()
+    private val porcoesList = mutableListOf<Consumivel>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Infla o layout do fragmento
         val view = inflater.inflate(R.layout.fragment_pecaaqui, container, false)
 
-        // Referências aos componentes do layout
+        // Inicializa o Firestore no onCreateView para garantir que ele seja inicializado antes de ser utilizado
+        auth = FirebaseAuth.getInstance()
+        db = FirebaseFirestore.getInstance()
+
+        // Referências aos componentes doa layout
         val btnLogin = view.findViewById<Button>(R.id.btnLogin)
         val tvHome: TextView = view.findViewById(R.id.tvHome)
         val tvPedidos: TextView = view.findViewById(R.id.tvPedidos)
         val tvPecaaqui: TextView = view.findViewById(R.id.tvPecaaqui)
         val ivLogo: ImageView = view.findViewById(R.id.ivLogo)
-        val btnAddToCart1 = view.findViewById<Button>(R.id.btnAddToCart)
-        val btnAddToCart2 = view.findViewById<Button>(R.id.btnAddToCart2)
+        val btnFinalizarCompra = view.findViewById<Button>(R.id.btn_finalizar_compra)
+        btnFinalizarCompra.setOnClickListener {
+            finalizarCompra()
+        }
 
-        val tvHamburguerName1 = view.findViewById<TextView>(R.id.tvHamburguerName)
-        val tvHamburguerPrice1 = view.findViewById<TextView>(R.id.tvHamburguerPrice)
+        // Configuração dos RecyclerViews para exibir na vertical
+        recyclerViewHamburguer = view.findViewById(R.id.rvHamburguer)
+        recyclerViewBebida = view.findViewById(R.id.rvBebida)
+        recyclerViewPorcao = view.findViewById(R.id.rvPorcao)
 
-        val tvHamburguerName2 = view.findViewById<TextView>(R.id.tvHamburguerName2)
-        val tvHamburguerPrice2 = view.findViewById<TextView>(R.id.tvHamburguerPrice2)
+        recyclerViewHamburguer.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+        recyclerViewBebida.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+        recyclerViewPorcao.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
 
-        // Configura os botões com onClickListener
+        // Carrinho
+        recyclerViewCarrinho = view.findViewById(R.id.rvCarrinho)
+        tvTotalPreco = view.findViewById(R.id.tvTotalPreco)
+
+        recyclerViewCarrinho.layoutManager = LinearLayoutManager(context)
+        adapterCarrinho = ConsumivelAdapter(carrinho, requireContext()) {}
+        recyclerViewCarrinho.adapter = adapterCarrinho
+
+        // Configuração dos adaptadores para consumíveis
+        adapterHamburguer = ConsumivelAdapter(hamburgersList, requireContext()) { addToCart(it) }
+        adapterBebida = ConsumivelAdapter(bebidasList, requireContext()) { addToCart(it) }
+        adapterPorcao = ConsumivelAdapter(porcoesList, requireContext()) { addToCart(it) }
+
+        recyclerViewHamburguer.adapter = adapterHamburguer
+        recyclerViewBebida.adapter = adapterBebida
+        recyclerViewPorcao.adapter = adapterPorcao
+
+        // Ações para navegar entre os fragmentos
         ivLogo.setOnClickListener {
-            // Navega para a própria Home (recarrega o fragmento)
             (activity as? LoginActivity)?.replaceFragment(HomeFragment())
         }
-
-        // Configura os botões com onClickListener
         tvHome.setOnClickListener {
-            // Navega para a própria Home (recarrega o fragmento)
             (activity as? LoginActivity)?.replaceFragment(HomeFragment())
         }
-
         tvPedidos.setOnClickListener {
-            // Navega para o fragmento de pedidos
             (activity as? LoginActivity)?.replaceFragment(PedidosFragment())
         }
-
         tvPecaaqui.setOnClickListener {
-            // Navega para o fragmento Peça Aqui
             (activity as? LoginActivity)?.replaceFragment(PecaaquiFragment())
-        }
-
-        btnLogin.setOnClickListener {
-            // Navega para o fragmento de login
-            (activity as? LoginActivity)?.replaceFragment(LoginFragment())
-        }
-
-        // Eventos de clique
-        btnLogin.setOnClickListener {
-            // Ação para login, pode ser uma navegação ou outro comportamento
-            Toast.makeText(requireContext(), "Login clicado!", Toast.LENGTH_SHORT).show()
-        }
-
-        btnAddToCart1.setOnClickListener {
-            // Adiciona o primeiro hambúrguer ao carrinho
-            Toast.makeText(requireContext(), "${tvHamburguerName1.text} adicionado ao carrinho", Toast.LENGTH_SHORT).show()
-        }
-
-        btnAddToCart2.setOnClickListener {
-            // Adiciona o segundo hambúrguer ao carrinho
-            Toast.makeText(requireContext(), "${tvHamburguerName2.text} adicionado ao carrinho", Toast.LENGTH_SHORT).show()
         }
 
         // Ação do link "Login"
         btnLogin.setOnClickListener {
-            // Troca para o fragment de login
             (activity as? LoginActivity)?.replaceFragment(LoginFragment())
         }
 
+        db.collection("consumiveis")
+            .orderBy("nome")
+            .get()
+            .addOnSuccessListener { querySnapshot ->
+                try {
+                    // Limpa as listas antes de preencher
+                    hamburgersList.clear()
+                    bebidasList.clear()
+                    porcoesList.clear()
+
+                    // Adiciona os consumíveis do Firestore na lista
+                    for (document in querySnapshot) {
+                        val consumivel = document.toObject(Consumivel::class.java)
+                        // Adiciona o ID do documento apenas em memória, não no Firestore
+                        consumivel.id = document.id
+                        when (consumivel.tipo.trim()) {
+                            "Hambúrguer" -> hamburgersList.add(consumivel)
+                            "Bebidas" -> bebidasList.add(consumivel)
+                            "Porções" -> porcoesList.add(consumivel)
+                        }
+                    }
+
+                    // Log das listas para verificar o conteúdo
+                    Log.d("PecaaquiFragment", "Hamburgers List: $hamburgersList")
+                    Log.d("PecaaquiFragment", "Bebidas List: $bebidasList")
+                    Log.d("PecaaquiFragment", "Porcoes List: $porcoesList")
+
+                    // Controla a visibilidade dos RecyclerViews com base na quantidade de itens
+                    recyclerViewHamburguer.visibility = if (hamburgersList.isEmpty()) View.GONE else View.VISIBLE
+                    recyclerViewBebida.visibility = if (bebidasList.isEmpty()) View.GONE else View.VISIBLE
+                    recyclerViewPorcao.visibility = if (porcoesList.isEmpty()) View.GONE else View.VISIBLE
+
+                    adapterHamburguer = ConsumivelAdapter(hamburgersList, requireContext()) { addToCart(it) }
+                    adapterBebida = ConsumivelAdapter(bebidasList, requireContext()) { addToCart(it) }
+                    adapterPorcao = ConsumivelAdapter(porcoesList, requireContext()) { addToCart(it) }
+
+                    // Atribui os adaptadores aos RecyclerViews
+                    recyclerViewHamburguer.adapter = adapterHamburguer
+                    recyclerViewBebida.adapter = adapterBebida
+                    recyclerViewPorcao.adapter = adapterPorcao
+
+                } catch (e: Exception) {
+                    Log.e("PecaaquiFragment", "Erro ao processar os dados: $e")
+                    Toast.makeText(requireContext(), "Erro ao processar os dados: $e", Toast.LENGTH_SHORT).show()
+                }
+            }
+            .addOnFailureListener { e ->
+                Log.e("PecaaquiFragment", "Erro ao buscar dados: $e")
+                Toast.makeText(requireContext(), "Erro ao buscar dados: $e", Toast.LENGTH_SHORT).show()
+            }
+
         return view
     }
+
+    private fun addToCart(consumivel: Consumivel) {
+        carrinho.add(consumivel)
+        totalPreco += consumivel.preco
+        tvTotalPreco.text = "Total: R$ %.2f".format(totalPreco)
+        adapterCarrinho.notifyDataSetChanged()
+    }
+
+    private fun finalizarCompra() {
+        // Obtenha o UID do usuário logado
+        val uid = getUserUID()
+        if (uid.isNullOrEmpty()) {
+            Toast.makeText(context, "Erro: usuário não está logado.", Toast.LENGTH_SHORT).show()
+            return
+        }
+        // Obtenha a data e hora atual
+        val dataHoraMillis = System.currentTimeMillis()
+
+        // Formate a data para o formato desejado
+        val format = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault())
+        val dataHoraFormatada = format.format(Date(dataHoraMillis))
+
+        // Crie uma lista com as IDs dos itens no carrinho
+        val itensIds = carrinho.mapNotNull { it.id }
+
+        // Crie o objeto do pedido
+        val pedido = hashMapOf(
+            "uid" to uid,
+            "data_hora" to dataHoraFormatada,
+            "itens" to itensIds
+        )
+
+        // Salve o pedido na coleção 'pedidos' no Firestore
+        db.collection("pedidos")
+            .add(pedido)
+            .addOnSuccessListener {
+                Toast.makeText(context, "Finalização da compra!", Toast.LENGTH_SHORT).show()
+                carrinho.clear()
+                adapterCarrinho.notifyDataSetChanged()
+                tvTotalPreco.text = "Preço Total: R$ 0.00"
+            }
+            .addOnFailureListener { e ->
+                Log.e("PecaaquiFragment", "Erro ao finalizar compra", e)
+                Toast.makeText(context, "Erro ao finalizar compra: ${e.message}", Toast.LENGTH_SHORT).show()
+            }
+    }
+
+    fun getUserUID(): String? {
+        val currentUser = auth.currentUser
+        return currentUser?.uid
+    }
+
+    data class Consumivel(
+        val descricao: String = "",
+        val foto: String = "",
+        val nome: String = "",
+        val preco: Double = 0.00,
+        val tipo: String = "",
+        var id: String? = null // O campo id será temporário, apenas em memória
+    )
 }
