@@ -16,6 +16,9 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.auth.FirebaseAuth
+import okhttp3.OkHttpClient
+import okhttp3.Request
+import org.json.JSONObject
 
 class CadastroFragment : Fragment() {
 
@@ -42,6 +45,58 @@ class CadastroFragment : Fragment() {
     private lateinit var ivLogo: ImageView
 
     private lateinit var db: FirebaseFirestore
+
+    private fun buscarDadosDoCEP(cep: String) {
+        // Remove qualquer formatação no CEP
+        val cepLimpo = cep.replace("-", "").trim()
+
+        if (cepLimpo.length != 8) {
+            Toast.makeText(context, "CEP inválido", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        val url = "https://viacep.com.br/ws/$cepLimpo/json/"
+
+        // Criação da thread para não bloquear a UI
+        Thread {
+            try {
+                // Fazendo a requisição HTTP
+                val client = OkHttpClient()
+                val request = Request.Builder().url(url).build()
+                val response = client.newCall(request).execute()
+
+                // Verificando a resposta
+                if (response.isSuccessful) {
+                    val responseBody = response.body?.string() // Acesso ao corpo da resposta
+
+                    // Parseando o JSON
+                    val json = JSONObject(responseBody ?: "{}")
+
+                    // Extraindo os dados
+                    val bairro = json.optString("bairro", "Não encontrado")
+                    val cidade = json.optString("localidade", "Não encontrado")
+                    val estado = json.optString("uf", "Não encontrado")
+                    val logradouro = json.optString("logradouro", "Não encontrado")
+
+                    // Atualizando a UI (precisa rodar na thread principal)
+                    activity?.runOnUiThread {
+                        etBairro.setText(bairro)
+                        etCidade.setText(cidade)
+                        etEstado.setText(estado)
+                        etLogradouro.setText(logradouro)
+                    }
+                } else {
+                    activity?.runOnUiThread {
+                        Toast.makeText(context, "Erro ao buscar dados do CEP", Toast.LENGTH_SHORT).show()
+                    }
+                }
+            } catch (e: Exception) {
+                activity?.runOnUiThread {
+                    Toast.makeText(context, "Erro ao realizar a requisição", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }.start()
+    }
 
     private fun formatarCPF(cpf: String): String {
         return cpf.replace(Regex("[^\\d]"), "").let {
@@ -91,6 +146,11 @@ class CadastroFragment : Fragment() {
                 etCEP.setText(formatarCEP(s.toString()))
                 etCEP.setSelection(etCEP.text.length)
                 isUpdating = false
+
+                // Quando o CEP tem 8 dígitos, buscar os dados
+                if (etCEP.text.length == 9) {
+                    buscarDadosDoCEP(etCEP.text.toString())
+                }
             }
 
             override fun afterTextChanged(s: Editable?) {}
