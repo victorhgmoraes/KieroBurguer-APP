@@ -27,10 +27,10 @@ class PecaaquiFragment : Fragment() {
     private lateinit var adapterHamburguer: ConsumivelAdapter
     private lateinit var adapterBebida: ConsumivelAdapter
     private lateinit var adapterPorcao: ConsumivelAdapter
-    private val carrinho = mutableListOf<Consumivel>()
-    private var totalPreco: Double = 0.00
+    val carrinho = mutableListOf<Consumivel>()
+    var totalPreco: Double = 0.00
     private lateinit var recyclerViewCarrinho: RecyclerView
-    private lateinit var adapterCarrinho: ConsumivelAdapter
+    lateinit var adapterCarrinho: ConsumivelAdapter
     lateinit var tvTotalPreco: TextView
 
     // Mudei para listas separadas
