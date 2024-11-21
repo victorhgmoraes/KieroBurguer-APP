@@ -28,7 +28,8 @@
                 android:text="Voltar a página inicial"
                 android:textSize="18sp"
                 android:textColor="#9B1C1C"
-                android:layout_marginBottom="10dp"/>
+                android:layout_marginBottom="10dp"
+                android:fontFamily="@font/alexandria_semibold"/>
 
             <!-- Seção de Upload de Foto -->
             <TextView
@@ -38,7 +39,8 @@
                 android:text="Foto:"
                 android:textColor="@color/black"
                 android:textSize="16sp"
-                android:layout_marginBottom="8dp" />
+                android:layout_marginBottom="8dp"
+                android:fontFamily="@font/alexandria_semibold"/>
 
             <Button
                 android:id="@+id/btnEscolherFoto"
@@ -48,7 +50,8 @@
                 android:backgroundTint="#9B1C1C"
                 android:textColor="@color/white"
                 android:text="Escolher ficheiro"
-                android:layout_marginBottom="8dp" />
+                android:layout_marginBottom="8dp"
+                android:fontFamily="@font/alexandria_semibold"/>
 
             <TextView
                 android:id="@+id/tvFotoSelecionada"
@@ -57,7 +60,8 @@
                 android:textColor="@color/black"
                 android:text="Nenhum ficheiro selecionado"
                 android:textSize="14sp"
-                android:layout_marginBottom="20dp" />
+                android:layout_marginBottom="20dp"
+                android:fontFamily="@font/alexandria_semibold"/>
 
             <!-- Campo de Nome -->
             <TextView
@@ -66,7 +70,8 @@
                 android:text="Nome:"
                 android:textColor="@color/botao_cor"
                 android:textSize="16sp"
-                android:layout_marginBottom="8dp" />
+                android:layout_marginBottom="8dp"
+                android:fontFamily="@font/alexandria_semibold"/>
 
             <EditText
                 android:id="@+id/etNome"
@@ -76,7 +81,8 @@
                 android:padding="8dp"
                 android:textColor="@color/black"
                 android:layout_marginBottom="20dp"
-                android:inputType="text"/>
+                android:inputType="text"
+                android:fontFamily="@font/alexandria_semibold"/>
 
             <!-- Campo de Descrição -->
             <TextView
@@ -85,7 +91,8 @@
                 android:text="Descrição:"
                 android:textColor="@color/botao_cor"
                 android:textSize="16sp"
-                android:layout_marginBottom="8dp" />
+                android:layout_marginBottom="8dp"
+                android:fontFamily="@font/alexandria_semibold"/>
 
             <EditText
                 android:id="@+id/etDescricao"
@@ -96,7 +103,8 @@
                 android:background="@drawable/et_border"
                 android:padding="8dp"
                 android:layout_marginBottom="20dp"
-                android:inputType="textMultiLine" />
+                android:inputType="textMultiLine"
+                android:fontFamily="@font/alexandria_semibold"/>
 
             <!-- Campo de Preço -->
             <TextView
@@ -105,7 +113,8 @@
                 android:text="Preço:"
                 android:textColor="@color/botao_cor"
                 android:textSize="16sp"
-                android:layout_marginBottom="8dp" />
+                android:layout_marginBottom="8dp"
+                android:fontFamily="@font/alexandria_semibold"/>
 
             <EditText
                 android:id="@+id/etPreco"
@@ -115,7 +124,8 @@
                 android:padding="8dp"
                 android:textColor="@color/black"
                 android:inputType="numberDecimal"
-                android:layout_marginBottom="20dp"/>
+                android:layout_marginBottom="20dp"
+                android:fontFamily="@font/alexandria_semibold"/>
 
             <!-- Campo de Tipo -->
             <TextView
@@ -124,7 +134,8 @@
                 android:text="Tipo:"
                 android:textSize="16sp"
                 android:textColor="@color/botao_cor"
-                android:layout_marginBottom="8dp" />
+                android:layout_marginBottom="8dp"
+                android:fontFamily="@font/alexandria_semibold"/>
 
             <Spinner
                 android:id="@+id/spinner_tipo_produto"
@@ -132,7 +143,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
                 android:background="@drawable/et_border"
-                android:textColor="#000000" />
+                android:textColor="#000000"
+                android:fontFamily="@font/alexandria_semibold"/>
 
             <!-- Botão Cadastrar -->
             <Button
@@ -145,7 +157,8 @@
                 android:text="Cadastrar"
                 android:paddingLeft="24dp"
                 android:paddingRight="24dp"
-                android:layout_marginTop="16dp"/>
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/alexandria_semibold"/>
         </LinearLayout>
         <!-- Moldes dos Produtos Cadastrados -->
         <LinearLayout

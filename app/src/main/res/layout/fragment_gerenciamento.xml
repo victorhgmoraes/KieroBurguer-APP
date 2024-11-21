@@ -37,11 +37,12 @@
                 android:id="@+id/tvWelcome"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="20dp"
+                android:layout_margin="5dp"
                 android:text="Olá Usuário, seja bem-vindo de volta!"
                 android:textColor="@android:color/white"
                 android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:fontFamily="@font/alexandria_semibold"/>
 
             <Button
                 android:id="@+id/btnLogout"
@@ -50,6 +51,7 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
                 android:backgroundTint="@color/botao_cor"
+                android:fontFamily="@font/alexandria_semibold"
                 android:padding="10dp"
                 android:text="Logout"
                 android:textColor="@android:color/white" />
@@ -72,7 +74,8 @@
             android:textSize="32sp"
             android:textStyle="bold"
             android:layout_margin="20dp"
-            android:gravity="center"/>
+            android:gravity="center"
+            android:fontFamily="@font/alexandria_semibold"/>
 
         <Button
             android:id="@+id/btnCardápio"
@@ -86,7 +89,8 @@
             android:textSize="16sp"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:fontFamily="@font/alexandria_semibold"/>
 
         <Button
             android:id="@+id/btnUsuarios"
@@ -100,13 +104,14 @@
             android:textSize="16sp"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:fontFamily="@font/alexandria_semibold"/>
     </LinearLayout>
     <!-- Footer -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="225dp"
+        android:layout_marginTop="155dp"
         android:background="#990909"
         android:gravity="center"
         android:orientation="vertical"
@@ -121,7 +126,8 @@
             android:text="Kiero Burguer®"
             android:textColor="#FFFFFF"
             android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:fontFamily="@font/alexandria_semibold"/>
 
         <TextView
             android:id="@+id/footer_integrantes"
@@ -131,7 +137,8 @@
             android:gravity="center"
             android:text="Desenvolvido por:"
             android:textColor="#FFFFFF"
-            android:textSize="15sp" />
+            android:textSize="15sp"
+            android:fontFamily="@font/alexandria_semibold"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -146,7 +153,8 @@
                 android:layout_marginEnd="16dp"
                 android:text="Luana Peracini"
                 android:textColor="#FFFFFF"
-                android:textSize="10sp" />
+                android:textSize="10sp"
+                android:fontFamily="@font/alexandria_semibold"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -154,7 +162,8 @@
                 android:layout_marginEnd="16dp"
                 android:text="Vinicius Luciano"
                 android:textColor="#FFFFFF"
-                android:textSize="10sp" />
+                android:textSize="10sp"
+                android:fontFamily="@font/alexandria_semibold"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -162,7 +171,8 @@
                 android:layout_marginEnd="16dp"
                 android:text="Matheus Gonçalves"
                 android:textColor="#FFFFFF"
-                android:textSize="10sp" />
+                android:textSize="10sp"
+                android:fontFamily="@font/alexandria_semibold"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -170,7 +180,8 @@
                 android:layout_marginEnd="16dp"
                 android:text="Victor Hugo"
                 android:textColor="#FFFFFF"
-                android:textSize="10sp" />
+                android:textSize="10sp"
+                android:fontFamily="@font/alexandria_semibold"/>
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

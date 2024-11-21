@@ -10,7 +10,8 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:padding="5dp"
-        android:textColor="@color/black" />
+        android:textColor="@color/black"
+        android:fontFamily="@font/alexandria_semibold"/>
 
     <TextView
         android:id="@+id/tvNome"
@@ -18,7 +19,8 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:padding="5dp"
-        android:textColor="@color/black" />
+        android:textColor="@color/black"
+        android:fontFamily="@font/alexandria_semibold"/>
 
     <TextView
         android:id="@+id/tvEmail"
@@ -26,14 +28,16 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:padding="5dp"
-        android:textColor="@color/black" />
+        android:textColor="@color/black"
+        android:fontFamily="@font/alexandria_semibold"/>
 
     <Spinner
         android:id="@+id/spinnerTipoUsuario"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="5dp"
-        android:entries="@array/tipos_usuario" />
+        android:entries="@array/tipos_usuario"
+        android:fontFamily="@font/alexandria_semibold"/>
 
     <LinearLayout
         android:orientation="vertical"
@@ -47,7 +51,8 @@
             android:backgroundTint="#9B1C1C"
             android:text="Salvar"
             android:textColor="@color/white"
-            android:layout_margin="2dp" />
+            android:layout_margin="2dp"
+            android:fontFamily="@font/alexandria_semibold"/>
 
         <Button
             android:id="@+id/btnExcluir"
@@ -56,6 +61,7 @@
             android:backgroundTint="#9B1C1C"
             android:text="Excluir"
             android:textColor="@color/white"
-            android:layout_margin="2dp" />
+            android:layout_margin="2dp"
+            android:fontFamily="@font/alexandria_semibold"/>
     </LinearLayout>
 </TableRow>

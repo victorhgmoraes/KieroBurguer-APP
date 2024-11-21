@@ -39,7 +39,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/background_gray" />
+        app:layout_constraintTop_toTopOf="@+id/background_gray"
+        android:fontFamily="@font/alexandria_semibold"/>
 
     <TextView
         android:id="@+id/tvLogin"
@@ -53,7 +54,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvVoltar" />
+        app:layout_constraintTop_toBottomOf="@+id/tvVoltar"
+        android:fontFamily="@font/alexandria_semibold"/>
 
     <EditText
         android:id="@+id/etUsuario"
@@ -70,7 +72,8 @@
         android:textColorHint="#6F6F70"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvLogin" />
+        app:layout_constraintTop_toBottomOf="@+id/tvLogin"
+        android:fontFamily="@font/alexandria_semibold"/>
 
     <EditText
         android:id="@+id/etSenha"
@@ -88,7 +91,8 @@
         android:textColorHint="#6F6F70"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etUsuario" />
+        app:layout_constraintTop_toBottomOf="@+id/etUsuario"
+        android:fontFamily="@font/alexandria_semibold"/>
 
     <Switch
         android:id="@+id/tvMostrarSenha"
@@ -102,7 +106,8 @@
         android:focusable="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etSenha" />
+        app:layout_constraintTop_toBottomOf="@+id/etSenha"
+        android:fontFamily="@font/alexandria_semibold"/>
 
     <Button
         android:id="@+id/btnEntrar"
@@ -119,7 +124,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etSenha" />
+        app:layout_constraintTop_toBottomOf="@+id/etSenha"
+        android:fontFamily="@font/alexandria_semibold"/>
 
     <TextView
         android:id="@+id/tvCadastro"
@@ -132,7 +138,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnEntrar" />
+        app:layout_constraintTop_toBottomOf="@+id/btnEntrar"
+        android:fontFamily="@font/alexandria_semibold"/>
 
     <TextView
         android:id="@+id/tvRodape"
@@ -144,6 +151,7 @@
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -191,7 +191,6 @@ class CadastroFragment : Fragment() {
         tvPecaaqui = view.findViewById(R.id.tvPecaaqui)
         tvHome = view.findViewById(R.id.tvHome)
         ivLogo = view.findViewById(R.id.ivLogo)
-        btnGerenciamento = view.findViewById(R.id.btnGerenciamento)
 
         // Configura o botão de cadastro
         btnCadastrar.setOnClickListener {
@@ -214,12 +213,6 @@ class CadastroFragment : Fragment() {
         btnLogin.setOnClickListener {
             // Troca para o fragment de login
             (activity as? LoginActivity)?.replaceFragment(LoginFragment())
-        }
-
-        // Ação do link "Gerenciamento"
-        btnGerenciamento.setOnClickListener {
-            // Troca para o fragment de gerenciamento
-            (activity as? LoginActivity)?.replaceFragment(GerenciamentoFragment())
         }
 
         // Ação do link "Pedidos"

@@ -14,7 +14,8 @@
         android:orientation="vertical"
         android:background="#990909"
         android:padding="6dp"
-        android:gravity="center">
+        android:gravity="center"
+        android:fontFamily="@font/alexandria_semibold">
 
         <!-- Logo/Nome da Hamburgueria -->
         <ImageView
@@ -39,7 +40,8 @@
                 android:text="@string/menu_home"
                 android:textColor="@android:color/white"
                 android:textSize="20sp"
-                android:padding="8dp"/>
+                android:padding="8dp"
+                android:fontFamily="@font/alexandria_semibold"/>
 
             <!-- Pedidos -->
             <TextView
@@ -49,7 +51,8 @@
                 android:text="@string/menu_pedidos"
                 android:textColor="@android:color/white"
                 android:textSize="20sp"
-                android:padding="8dp"/>
+                android:padding="8dp"
+                android:fontFamily="@font/alexandria_semibold"/>
 
             <!-- Peça aqui -->
             <TextView
@@ -59,7 +62,8 @@
                 android:text="@string/menu_peca_aqui"
                 android:textColor="@android:color/white"
                 android:textSize="20sp"
-                android:padding="8dp"/>
+                android:padding="8dp"
+                android:fontFamily="@font/alexandria_semibold"/>
 
         </LinearLayout>
         <!-- Botão de Login -->
@@ -72,16 +76,9 @@
             android:backgroundTint="@color/botao_cor"
             android:padding="10dp"
             android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"/>
+            android:layout_marginBottom="5dp"
+            android:fontFamily="@font/alexandria_semibold"/>
 
-        <Button
-            android:id="@+id/btnGerenciamento"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Ir para Gerenciamento"
-            android:backgroundTint="@color/botao_cor"
-            android:textColor="@android:color/white"
-            android:textSize="16sp"/>
     </LinearLayout>
 
     <!-- Seção pequena em branco com "Cadastre-se" -->
@@ -102,7 +99,8 @@
             android:text="@string/cadastro_titulo"
             android:textColor="#AD0D0F"
             android:textSize="24sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:fontFamily="@font/alexandria_semibold"/>
     </LinearLayout>
     <!-- Área de scroll com fundo mais suave -->
     <ScrollView
@@ -128,7 +126,8 @@
                 android:gravity="center"
                 android:textColor="@android:color/black"
                 android:textColorHint="#6F6F70"
-                android:layout_marginBottom="30dp"/>
+                android:layout_marginBottom="30dp"
+                android:fontFamily="@font/alexandria_semibold"/>
 
             <!-- Campo de Nome -->
             <EditText
@@ -141,7 +140,8 @@
                 android:textColor="@android:color/black"
                 android:gravity="center"
                 android:textColorHint="#6F6F70"
-                android:layout_marginBottom="30dp"/>
+                android:layout_marginBottom="30dp"
+                android:fontFamily="@font/alexandria_semibold"/>
 
             <!-- Campo de E-mail -->
             <EditText
@@ -155,7 +155,8 @@
                 android:gravity="center"
                 android:textColorHint="#6F6F70"
                 android:layout_marginBottom="30dp"
-                android:inputType="textEmailAddress" />
+                android:inputType="textEmailAddress"
+                android:fontFamily="@font/alexandria_semibold"/>
 
             <!-- Campo de Senha -->
             <EditText
@@ -169,7 +170,8 @@
                 android:textColor="@android:color/black"
                 android:textColorHint="#6F6F70"
                 android:inputType="textPassword"
-                android:layout_marginBottom="30dp"/>
+                android:layout_marginBottom="30dp"
+                android:fontFamily="@font/alexandria_semibold"/>
 
             <!-- Campo de Confirmação de Senha -->
             <EditText
@@ -183,7 +185,8 @@
                 android:gravity="center"
                 android:textColorHint="#6F6F70"
                 android:inputType="textPassword"
-                android:layout_marginBottom="30dp"/>
+                android:layout_marginBottom="30dp"
+                android:fontFamily="@font/alexandria_semibold"/>
 
             <!-- Campo de CPF -->
             <EditText
@@ -197,7 +200,8 @@
                 android:gravity="center"
                 android:textColorHint="#6F6F70"
                 android:inputType="number"
-                android:layout_marginBottom="30dp"/>
+                android:layout_marginBottom="30dp"
+                android:fontFamily="@font/alexandria_semibold"/>
 
             <!-- Campo de CEP -->
             <EditText
@@ -211,7 +215,8 @@
                 android:gravity="center"
                 android:textColorHint="#6F6F70"
                 android:inputType="number"
-                android:layout_marginBottom="30dp"/>
+                android:layout_marginBottom="30dp"
+                android:fontFamily="@font/alexandria_semibold"/>
 
             <!-- Campo de Logradouro -->
             <EditText
@@ -225,7 +230,8 @@
                 android:gravity="center"
                 android:textColorHint="#6F6F70"
                 android:layout_marginBottom="30dp"
-                android:inputType="text"/>
+                android:inputType="text"
+                android:fontFamily="@font/alexandria_semibold"/>
 
             <!-- Campo de Número -->
             <EditText
@@ -239,7 +245,8 @@
                 android:textColor="@android:color/black"
                 android:textColorHint="#6F6F70"
                 android:inputType="number"
-                android:layout_marginBottom="30dp"/>
+                android:layout_marginBottom="30dp"
+                android:fontFamily="@font/alexandria_semibold"/>
 
             <!-- Campo de Complemento -->
             <EditText
@@ -253,7 +260,8 @@
                 android:textColor="@android:color/black"
                 android:textColorHint="#6F6F70"
                 android:layout_marginBottom="30dp"
-                android:inputType="text"/>
+                android:inputType="text"
+                android:fontFamily="@font/alexandria_semibold"/>
 
             <!-- Campo de Bairro -->
             <EditText
@@ -267,7 +275,8 @@
                 android:textColor="@android:color/black"
                 android:textColorHint="#6F6F70"
                 android:layout_marginBottom="30dp"
-                android:inputType="text"/>
+                android:inputType="text"
+                android:fontFamily="@font/alexandria_semibold"/>
 
             <!-- Campo de Cidade -->
             <EditText
@@ -281,7 +290,8 @@
                 android:textColor="@android:color/black"
                 android:textColorHint="#6F6F70"
                 android:layout_marginBottom="30dp"
-                android:inputType="text"/>
+                android:inputType="text"
+                android:fontFamily="@font/alexandria_semibold"/>
 
             <!-- Campo de Estado -->
             <EditText
@@ -295,7 +305,8 @@
                 android:textColor="@android:color/black"
                 android:textColorHint="#6F6F70"
                 android:layout_marginBottom="30dp"
-                android:inputType="text"/>
+                android:inputType="text"
+                android:fontFamily="@font/alexandria_semibold"/>
 
             <!-- Botão de Cadastrar -->
             <Button
@@ -305,7 +316,8 @@
                 android:text="@string/cadastrar_button"
                 android:backgroundTint="@color/white"
                 android:textColor="#B71C1C"
-                android:padding="18dp"/>
+                android:padding="18dp"
+                android:fontFamily="@font/alexandria_semibold"/>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

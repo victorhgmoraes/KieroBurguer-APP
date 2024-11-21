@@ -21,20 +21,20 @@ class PedidosFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        // Obtenha a instância do Firestore diretamente
-        auth = FirebaseAuth.getInstance()
-        db = FirebaseFirestore.getInstance()
         tabelaPedidos = view.findViewById(R.id.tabela_pedidos)
-
-        // Carregar usuários do Firestore
-        carregarPedidos()
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        // Obtenha a instância do Firestore diretamente
+        auth = FirebaseAuth.getInstance()
+        db = FirebaseFirestore.getInstance()
+
+        // Carregar usuários do Firestore
+        carregarPedidos()
+
         // Inflar o layout para este fragmento
         val view = inflater.inflate(R.layout.fragment_pedidos, container, false)
 
@@ -44,10 +44,31 @@ class PedidosFragment : Fragment() {
         val tvMeusPedidos: TextView = view.findViewById(R.id.tv_meus_pedidos)
         val tvPecaaqui: TextView = view.findViewById(R.id.tvPecaaqui)
 
-        // Ação do link "Cadastre-se"
+        fun updateUI() {
+            val currentUser = auth.currentUser
+            if (currentUser != null) {
+                // Define o botão como "Logout"
+                btnLogin.text = "Logout"
+            } else {
+                btnLogin.text = "Login"
+            }
+        }
+
+        // Verifica se o usuário está logado e atualiza a interface
+        updateUI()
+
+        // Ação do botão Login/Logout
         btnLogin.setOnClickListener {
-            // Troca para o fragment de cadastro
-            (activity as? LoginActivity)?.replaceFragment(LoginFragment())
+            val currentUser = auth.currentUser
+            if (currentUser != null) {
+                // Usuário está logado, realizar logout
+                auth.signOut()
+                btnLogin.text = "Login"
+                (activity as? LoginActivity)?.replaceFragment(LoginFragment())
+            } else {
+                // Usuário não está logado, redireciona para o login
+                (activity as? LoginActivity)?.replaceFragment(LoginFragment())
+            }
         }
 
         tvPecaaqui.setOnClickListener {

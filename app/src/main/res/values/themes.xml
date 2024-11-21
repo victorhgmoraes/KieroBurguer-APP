@@ -4,5 +4,7 @@
 
     </style>
 
-    <style name="Theme.Login" parent="Base.Theme.Login" />
+    <style name="Theme.Login" parent="Base.Theme.Login" >
+
+    </style>
 </resources>

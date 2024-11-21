@@ -16,7 +16,8 @@
         android:textColor="@color/black"
         android:textSize="18sp"
         android:textStyle="bold"
-        android:layout_marginBottom="8dp" />
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/alexandria_semibold"/>
 
     <ImageView
         android:id="@+id/imagemProduto"
@@ -33,7 +34,8 @@
         android:layout_height="wrap_content"
         android:text="Descrição do produto aqui..."
         android:textColor="@color/black"
-        android:layout_marginBottom="8dp" />
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/alexandria_semibold"/>
 
     <TextView
         android:id="@+id/precoProduto"
@@ -41,7 +43,8 @@
         android:layout_height="wrap_content"
         android:textColor="@color/black"
         android:text="Preço: R$ 27,00"
-        android:layout_marginBottom="8dp" />
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/alexandria_semibold"/>
 
     <TextView
         android:id="@+id/tipoProduto"
@@ -49,7 +52,8 @@
         android:layout_height="wrap_content"
         android:textColor="@color/black"
         android:text="Tipo: hamburger"
-        android:layout_marginBottom="8dp" />
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/alexandria_semibold"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -65,7 +69,8 @@
             android:backgroundTint="#9B1C1C"
             android:textColor="@color/white"
             android:text="Editar"
-            android:layout_marginEnd="16dp" />
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/alexandria_semibold"/>
 
         <Button
             android:id="@+id/btnExcluir"
@@ -74,6 +79,7 @@
             android:background="@drawable/rounded_edittext"
             android:backgroundTint="#9B1C1C"
             android:textColor="@color/white"
-            android:text="Excluir" />
+            android:text="Excluir"
+            android:fontFamily="@font/alexandria_semibold"/>
     </LinearLayout>
 </LinearLayout>

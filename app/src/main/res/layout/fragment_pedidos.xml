@@ -37,7 +37,8 @@
                 android:text="@string/menu_home"
                 android:textColor="@android:color/white"
                 android:textSize="20sp"
-                android:padding="8dp"/>
+                android:padding="8dp"
+                android:fontFamily="@font/alexandria_semibold"/>
 
             <!-- Pedidos -->
             <TextView
@@ -46,7 +47,8 @@
                 android:text="@string/menu_pedidos"
                 android:textColor="@android:color/white"
                 android:textSize="20sp"
-                android:padding="8dp"/>
+                android:padding="8dp"
+                android:fontFamily="@font/alexandria_semibold"/>
 
             <!-- Peça aqui -->
             <TextView
@@ -56,7 +58,8 @@
                 android:text="@string/menu_peca_aqui"
                 android:textColor="@android:color/white"
                 android:textSize="20sp"
-                android:padding="8dp"/>
+                android:padding="8dp"
+                android:fontFamily="@font/alexandria_semibold"/>
 
         </LinearLayout>
 
@@ -65,12 +68,13 @@
             android:id="@+id/btnLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/logout_button"
+            android:text="@string/login_button"
             android:textColor="@android:color/white"
             android:backgroundTint="@color/botao_cor"
             android:padding="10dp"
             android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"/>
+            android:layout_marginBottom="5dp"
+            android:fontFamily="@font/alexandria_semibold"/>
     </LinearLayout>
     <!-- Título "Meus Pedidos" -->
     <TextView
@@ -83,7 +87,8 @@
         android:textStyle="bold"
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="24dp"
-        android:layout_marginTop="24dp"/>
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/alexandria_semibold"/>
     <HorizontalScrollView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
@@ -111,7 +116,8 @@
                         android:gravity="center"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:padding="5dp"/>
+                        android:padding="5dp"
+                        android:fontFamily="@font/alexandria_semibold"/>
 
                     <TextView
                         android:text="Itens"
@@ -120,7 +126,8 @@
                         android:gravity="center"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:padding="5dp"/>
+                        android:padding="5dp"
+                        android:fontFamily="@font/alexandria_semibold"/>
 
                     <TextView
                         android:text="Total"
@@ -129,7 +136,8 @@
                         android:gravity="center"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:padding="5dp"/>
+                        android:padding="5dp"
+                        android:fontFamily="@font/alexandria_semibold"/>
 
                     <TextView
                         android:text="Endereço de Entrega"
@@ -138,7 +146,8 @@
                         android:gravity="center"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:padding="5dp"/>
+                        android:padding="5dp"
+                        android:fontFamily="@font/alexandria_semibold"/>
                 </TableRow>
 
             </TableLayout>

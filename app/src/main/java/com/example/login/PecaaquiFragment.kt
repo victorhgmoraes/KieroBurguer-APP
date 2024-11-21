@@ -58,6 +58,24 @@ class PecaaquiFragment : Fragment() {
         btnFinalizarCompra.setOnClickListener {
             finalizarCompra()
         }
+        // Referência ao botão de limpar carrinho
+        val btnLimparCarrinho = view.findViewById<Button>(R.id.btn_limpar_carrinho)
+        btnLimparCarrinho.setOnClickListener {
+            limparCarrinho()  // Chama a função para limpar o carrinho
+        }
+
+        fun updateUI() {
+            val currentUser = auth.currentUser
+            if (currentUser != null) {
+                // Define o botão como "Logout"
+                btnLogin.text = "Logout"
+            } else {
+                btnLogin.text = "Login"
+            }
+        }
+
+        // Verifica se o usuário está logado e atualiza a interface
+        updateUI()
 
         // Configuração dos RecyclerViews para exibir na vertical
         recyclerViewHamburguer = view.findViewById(R.id.rvHamburguer)
@@ -99,9 +117,18 @@ class PecaaquiFragment : Fragment() {
             (activity as? LoginActivity)?.replaceFragment(PecaaquiFragment())
         }
 
-        // Ação do link "Login"
+        // Ação do botão Login/Logout
         btnLogin.setOnClickListener {
-            (activity as? LoginActivity)?.replaceFragment(LoginFragment())
+            val currentUser = auth.currentUser
+            if (currentUser != null) {
+                // Usuário está logado, realizar logout
+                auth.signOut()
+                btnLogin.text = "Login"
+                (activity as? LoginActivity)?.replaceFragment(LoginFragment())
+            } else {
+                // Usuário não está logado, redireciona para o login
+                (activity as? LoginActivity)?.replaceFragment(LoginFragment())
+            }
         }
 
         db.collection("consumiveis")
@@ -170,6 +197,7 @@ class PecaaquiFragment : Fragment() {
         val uid = getUserUID()
         if (uid.isNullOrEmpty()) {
             Toast.makeText(context, "Erro: usuário não está logado.", Toast.LENGTH_SHORT).show()
+            (activity as? LoginActivity)?.replaceFragment(LoginFragment())
             return
         }
         // Obtenha a data e hora atual
@@ -203,6 +231,20 @@ class PecaaquiFragment : Fragment() {
                 Toast.makeText(context, "Erro ao finalizar compra: ${e.message}", Toast.LENGTH_SHORT).show()
             }
     }
+
+    fun limparCarrinho() {
+        // Limpa a lista de itens do carrinho
+        carrinho.clear()
+        // Zera o preço total
+        totalPreco = 0.00
+        // Atualiza o texto do preço total na interface
+        tvTotalPreco.text = "Total: R$ 0.00"
+        // Notifica o adaptador para atualizar a exibição
+        adapterCarrinho.notifyDataSetChanged()
+        // Exibe uma mensagem de sucesso
+        Toast.makeText(context, "Carrinho limpo!", Toast.LENGTH_SHORT).show()
+    }
+
 
     fun getUserUID(): String? {
         val currentUser = auth.currentUser
