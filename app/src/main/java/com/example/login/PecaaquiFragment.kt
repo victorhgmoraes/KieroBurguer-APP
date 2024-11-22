@@ -28,10 +28,10 @@ class PecaaquiFragment : Fragment() {
     private lateinit var adapterHamburguer: ConsumivelAdapter
     private lateinit var adapterBebida: ConsumivelAdapter
     private lateinit var adapterPorcao: ConsumivelAdapter
-    private val carrinho = mutableListOf<Consumivel>()
-    private var totalPreco: Double = 0.00
-    private lateinit var recyclerViewCarrinho: RecyclerView
-    private lateinit var adapterCarrinho: ConsumivelAdapter
+    val carrinho = mutableListOf<Consumivel>()
+    var totalPreco: Double = 0.00
+    lateinit var recyclerViewCarrinho: RecyclerView
+    lateinit var adapterCarrinho: ConsumivelAdapter
     lateinit var tvTotalPreco: TextView
 
     // Mudei para listas separadas
@@ -186,7 +186,7 @@ class PecaaquiFragment : Fragment() {
         return view
     }
 
-    private fun addToCart(consumivel: Consumivel) {
+    fun addToCart(consumivel: Consumivel) {
         carrinho.add(consumivel)
         totalPreco += consumivel.preco
         val format = NumberFormat.getCurrencyInstance(Locale("pt", "BR"))
