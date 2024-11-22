@@ -1,6 +1,7 @@
 package com.example.login
 
 import android.content.Context
+import android.icu.text.NumberFormat
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +11,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import java.util.Locale
 
 class ConsumivelAdapter(
     private val consumiveis: List<PecaaquiFragment.Consumivel>,
@@ -26,7 +28,8 @@ class ConsumivelAdapter(
         val consumivel = consumiveis[position]
         holder.nome.text = consumivel.nome
         holder.descricao.text = consumivel.descricao
-        holder.preco.text = "R$ ${consumivel.preco}"
+        val format = NumberFormat.getCurrencyInstance(Locale("pt", "BR"))
+        holder.preco.text = format.format(consumivel.preco)
 
         // Carregar a imagem da URL usando o Glide
         Glide.with(context)

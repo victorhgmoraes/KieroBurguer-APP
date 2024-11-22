@@ -199,7 +199,10 @@ class CardapioadmFragment : Fragment() {
 
         produtoView.findViewById<TextView>(R.id.nomeProduto).text = produto["nome"].toString()
         produtoView.findViewById<TextView>(R.id.descricaoProduto).text = produto["descricao"].toString()
-        produtoView.findViewById<TextView>(R.id.precoProduto).text = "Preço: R$ ${produto["preco"].toString()}"
+        // Formatando o preço com duas casas decimais
+        val preco = produto["preco"]?.toString()?.toDoubleOrNull() ?: 0.0
+        val precoFormatado = String.format(Locale.getDefault(), "R$ %.2f", preco).replace(".", ",")
+        produtoView.findViewById<TextView>(R.id.precoProduto).text = "Preço: $precoFormatado"
         produtoView.findViewById<TextView>(R.id.tipoProduto).text = "Tipo: ${produto["tipo"].toString()}"
 
         val fotoUrl = produto["foto"] as? String
@@ -230,13 +233,13 @@ class CardapioadmFragment : Fragment() {
                 // Preenchendo o formulário com os dados atuais do produto
                 etNovoNome.setText(produto["nome"].toString())
                 etNovaDescricao.setText(produto["descricao"].toString())
-                etNovoPreco.setText(produto["preco"].toString())
+                etNovoPreco.setText(precoFormatado) // Exibindo o preço formatado
                 etNovoTipo.setText(produto["tipo"].toString())
 
                 btnSalvar.setOnClickListener {
                     val novoNome = etNovoNome.text.toString()
                     val novaDescricao = etNovaDescricao.text.toString()
-                    val novoPreco = etNovoPreco.text.toString().toDoubleOrNull() ?: 0.00
+                    val novoPreco = etNovoPreco.text.toString().replace(",", ".").toDoubleOrNull() ?: 0.00
                     val novoTipo = etNovoTipo.text.toString()
 
                     atualizarProduto(produto["id"].toString(), novoNome, novaDescricao, novoPreco, novoTipo)

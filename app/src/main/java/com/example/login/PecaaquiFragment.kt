@@ -1,5 +1,6 @@
 package com.example.login
 
+import android.icu.text.NumberFormat
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -188,7 +189,8 @@ class PecaaquiFragment : Fragment() {
     private fun addToCart(consumivel: Consumivel) {
         carrinho.add(consumivel)
         totalPreco += consumivel.preco
-        tvTotalPreco.text = "Total: R$ %.2f".format(totalPreco)
+        val format = NumberFormat.getCurrencyInstance(Locale("pt", "BR"))
+        tvTotalPreco.text = "Total: ${format.format(totalPreco)}"
         adapterCarrinho.notifyDataSetChanged()
     }
 

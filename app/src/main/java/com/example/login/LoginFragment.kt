@@ -83,8 +83,11 @@ class LoginFragment : Fragment() {
 
     // Função para autenticar o usuário usando nome de usuário e senha
     public fun autenticarUsuario(usuario: String, senha: String) {
-        // Busque o usuário no Firestore com o nome de usuário fornecido
-        val userRef = db.collection("tbl_login").whereEqualTo("User_Login", usuario)
+        // Convertendo o nome de usuário para minúsculas
+        val usuarioLowerCase = usuario.toLowerCase()
+
+        // Busque o usuário no Firestore com o nome de usuário em minúsculas
+        val userRef = db.collection("tbl_login").whereEqualTo("User_Login", usuarioLowerCase)
 
         userRef.get()
             .addOnSuccessListener { documents ->

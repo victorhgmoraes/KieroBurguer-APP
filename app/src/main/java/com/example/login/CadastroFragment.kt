@@ -19,6 +19,7 @@ import com.google.firebase.auth.FirebaseAuth
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import org.json.JSONObject
+import java.util.Locale
 
 class CadastroFragment : Fragment() {
 
@@ -159,7 +160,7 @@ class CadastroFragment : Fragment() {
         // Limita o campo de CPF a 14 caracteres (formato: 000.000.000-00)
         etCPF.filters = arrayOf(InputFilter.LengthFilter(14))
 
-    // Limita o campo de CEP a 9 caracteres (formato: 00000-000)
+        // Limita o campo de CEP a 9 caracteres (formato: 00000-000)
             etCEP.filters = arrayOf(InputFilter.LengthFilter(9))
     }
 
@@ -233,7 +234,7 @@ class CadastroFragment : Fragment() {
 
     private fun cadastrarUsuario() {
         // Obtém os dados dos campos de entrada
-        val usuario = etUsuario.text.toString()
+        val usuario = etUsuario.text.toString().lowercase(Locale.getDefault())
         val nome = etNome.text.toString()
         val email = etEmail.text.toString()
         val senha = etSenha.text.toString()

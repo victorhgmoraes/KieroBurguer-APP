@@ -35,7 +35,12 @@
         android:text="Descrição do produto aqui..."
         android:textColor="@color/black"
         android:layout_marginBottom="8dp"
-        android:fontFamily="@font/alexandria_semibold"/>
+        android:fontFamily="@font/alexandria_semibold"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:lineSpacingExtra="4dp"
+        android:maxLines="5"
+        android:ellipsize="end"/>
 
     <TextView
         android:id="@+id/precoProduto"
