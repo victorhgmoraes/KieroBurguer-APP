@@ -29,7 +29,7 @@ class PecaaquiFragment : Fragment() {
     private lateinit var adapterPorcao: ConsumivelAdapter
     val carrinho = mutableListOf<Consumivel>()
     var totalPreco: Double = 0.00
-    private lateinit var recyclerViewCarrinho: RecyclerView
+    lateinit var recyclerViewCarrinho: RecyclerView
     lateinit var adapterCarrinho: ConsumivelAdapter
     lateinit var tvTotalPreco: TextView
 
@@ -185,7 +185,7 @@ class PecaaquiFragment : Fragment() {
         return view
     }
 
-    private fun addToCart(consumivel: Consumivel) {
+    fun addToCart(consumivel: Consumivel) {
         carrinho.add(consumivel)
         totalPreco += consumivel.preco
         tvTotalPreco.text = "Total: R$ %.2f".format(totalPreco)
