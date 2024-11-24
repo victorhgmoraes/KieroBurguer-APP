@@ -233,13 +233,14 @@ class CardapioadmFragment : Fragment() {
                 // Preenchendo o formulário com os dados atuais do produto
                 etNovoNome.setText(produto["nome"].toString())
                 etNovaDescricao.setText(produto["descricao"].toString())
-                etNovoPreco.setText(precoFormatado) // Exibindo o preço formatado
+                etNovoPreco.setText(preco.toString()) // Exibindo o preço sem formatação
                 etNovoTipo.setText(produto["tipo"].toString())
 
                 btnSalvar.setOnClickListener {
                     val novoNome = etNovoNome.text.toString()
                     val novaDescricao = etNovaDescricao.text.toString()
-                    val novoPreco = etNovoPreco.text.toString().replace(",", ".").toDoubleOrNull() ?: 0.00
+                    val precoString = etNovoPreco.text.toString().replace(",", ".")
+                    val novoPreco = precoString.toDoubleOrNull() ?: 0.00
                     val novoTipo = etNovoTipo.text.toString()
 
                     atualizarProduto(produto["id"].toString(), novoNome, novaDescricao, novoPreco, novoTipo)

@@ -9,6 +9,12 @@ import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
+import org.mockito.ArgumentMatchers.anyDouble
+import org.mockito.Mockito.mock
+import org.mockito.Mockito.mockStatic
+import org.mockito.kotlin.whenever
+import java.text.NumberFormat
+import java.util.Locale
 
 @RunWith(AndroidJUnit4::class)
 class PecaaquiFragmentTest {
@@ -21,6 +27,7 @@ class PecaaquiFragmentTest {
         fragment = PecaaquiFragment()
         fragment.tvTotalPreco = TextView(ApplicationProvider.getApplicationContext()) // Simula o TextView
         fragment.adapterCarrinho = ConsumivelAdapter(mutableListOf(), ApplicationProvider.getApplicationContext()) {}
+        Locale.setDefault(Locale.US) // Configura o Locale para o teste
     }
 
     @Test
@@ -48,19 +55,29 @@ class PecaaquiFragmentTest {
 
     @Test
     fun testAddToCart() {
-        // Simula a adição de um item ao carrinho
-        val consumivel = PecaaquiFragment.Consumivel(nome = "Hamburguer", preco = 15.0)
-        fragment.addToCart(consumivel)
+        // Mock do NumberFormat
+        val mockNumberFormat = mock(android.icu.text.NumberFormat::class.java)
+        whenever(mockNumberFormat.format(anyDouble())).thenReturn("R$ 15,00")
 
-        // Verifica se o item foi adicionado ao carrinho
-        assertTrue(fragment.carrinho.contains(consumivel))
+        // Mockando o método estático getCurrencyInstance
+        mockStatic(android.icu.text.NumberFormat::class.java).use { mockedStatic ->
+            mockedStatic.`when`<android.icu.text.NumberFormat> {
+                android.icu.text.NumberFormat.getCurrencyInstance(Locale.US)
+            }.thenReturn(mockNumberFormat)
 
-        // Verifica se o preço total foi atualizado corretamente
-        assertEquals(15.0, fragment.totalPreco, 0.01)
+            // Preparando o objeto Consumivel
+            val consumivel = PecaaquiFragment.Consumivel(nome = "Hamburguer", preco = 15.0)
 
-        // Verifica se o texto foi atualizado corretamente
-        assertEquals("Total: R$ 15.00", fragment.tvTotalPreco.text.toString())
+            // Chamando a função do fragmento
+            fragment.addToCart(consumivel)
+
+            // Verificando o estado esperado
+            assertTrue(fragment.carrinho.contains(consumivel))
+            assertEquals(15.0, fragment.totalPreco, 0.01)
+            assertEquals("Total: R$ 15,00", fragment.tvTotalPreco.text.toString())
+        }
     }
+
     @Test
     fun testLimparCarrinhoQuandoVazio() {
         // Certifique-se de que o carrinho está vazio antes de realizar o teste

@@ -144,7 +144,10 @@ class PecaaquiFragment : Fragment() {
 
                     // Adiciona os consumíveis do Firestore na lista
                     for (document in querySnapshot) {
-                        val consumivel = document.toObject(Consumivel::class.java)
+                        val consumivel = document.toObject(Consumivel::class.java).apply {
+                            id = document.id
+                            preco = document.getDouble("preco") ?: 0.0 // Garantir que o preço seja Double
+                        }
                         // Adiciona o ID do documento apenas em memória, não no Firestore
                         consumivel.id = document.id
                         when (consumivel.tipo.trim()) {
@@ -189,7 +192,7 @@ class PecaaquiFragment : Fragment() {
     fun addToCart(consumivel: Consumivel) {
         carrinho.add(consumivel)
         totalPreco += consumivel.preco
-        val format = NumberFormat.getCurrencyInstance(Locale("pt", "BR"))
+        val format: NumberFormat = NumberFormat.getCurrencyInstance(Locale.getDefault())
         tvTotalPreco.text = "Total: ${format.format(totalPreco)}"
         adapterCarrinho.notifyDataSetChanged()
     }
@@ -257,7 +260,7 @@ class PecaaquiFragment : Fragment() {
         val descricao: String = "",
         val foto: String = "",
         val nome: String = "",
-        val preco: Double = 0.00,
+        var preco: Double = 0.00,
         val tipo: String = "",
         var id: String? = null // O campo id será temporário, apenas em memória
     )
